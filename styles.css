@@ -193,6 +193,72 @@ nav {
   padding: 2.5rem 0 3rem;
 }
 
+.profile-hero {
+  max-width: 960px;
+}
+
+.profile-hero .frame {
+  position: relative;
+  width: min(280px, 72vw);
+  aspect-ratio: 1;
+  margin: 0 auto;
+}
+
+.profile-hero .frame::before {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border-radius: 58% 42% 55% 45% / 48% 56% 44% 52%;
+  background: conic-gradient(
+    from 20deg,
+    var(--pink),
+    var(--mauve),
+    var(--lav),
+    var(--peach),
+    var(--pink)
+  );
+  animation: spin 14s linear infinite;
+}
+
+.profile-hero .pic {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--mantle);
+  border: 6px solid var(--base);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.profile-hero .pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 760px) {
+  .profile-hero {
+    grid-template-columns: 1fr 1fr;
+    text-align: left;
+    justify-items: stretch;
+  }
+
+  .profile-hero .tag {
+    margin: 0;
+  }
+
+  .profile-hero .btns {
+    justify-content: flex-start;
+  }
+}
+
 .hi {
   color: var(--mauve);
   font-size: 1.2rem;
